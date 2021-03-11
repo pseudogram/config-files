@@ -1,5 +1,6 @@
 #
 #  nvm - node version manager
+#    ZSH configuration
 #
 
 export NVM_DIR="$HOME/.nvm"
