@@ -100,6 +100,9 @@ set et
 " Nerdtree add and delete
 set modifiable
 
+" Use mouse to click
+:set mouse=a
+
 " ____________________________________________________________________
 "                     Editor Visual Settings
 " ____________________________________________________________________
@@ -123,8 +126,8 @@ let g:airline#extensions#tabline#enabled = 1
 " ____________________________________________________________________
 
 " Vim built in Spelling
-:set spell
-" set nospell
+" :set spell
+:set nospell
 
 " Don't mark URL-like things as spelling errors
 " syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
@@ -159,7 +162,7 @@ let g:spelunker_max_hi_words_each_buf = 100
 " may take a bit of time on large files.
 " 2: Spellcheck displayed words in buffer. Fast and dynamic. The waiting time
 " depends on the setting of CursorHold `set updatetime=1000`.
-let g:spelunker_check_type = 1
+let g:spelunker_check_type = 0
 
 " Highlight type: (default: 1)
 " 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
@@ -194,7 +197,7 @@ augroup spelunker
   autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md,*.py call spelunker#check()
 
   " Setting for g:spelunker_check_type = 2:
-  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md, *.py call spelunker#check_displayed_words()
+  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md,*.py call spelunker#check_displayed_words()
 augroup END
 
 
