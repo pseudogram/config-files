@@ -18,3 +18,12 @@ if test ! -f "$VIMRC"; then
     echo ".vimrc not found in $HOME. Creating softlink to $CONF_VIMRC"
     ln -s $CONF_VIMRC $VIMRC
 fi
+
+
+# Make and cd into directory
+# https://unix.stackexchange.com/a/125386
+mcd ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
