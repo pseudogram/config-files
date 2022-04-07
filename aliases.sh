@@ -7,8 +7,11 @@ alias dm='./docker.mk '
 # alias prettier="npm run prettier"
 alias refresh="source $HOME/.zshrc"
 alias rm="/bin/rm -iv"
-alias cat=bat
+# alias cat=bat
 alias cl=clear
+
+# File shortcuts
+alias conf=~/config-files
 
 # Python aliases
 alias py=python3.9
