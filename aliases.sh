@@ -11,7 +11,7 @@ alias rm="/bin/rm -iv"
 alias cl=clear
 
 # File shortcuts
-alias conf=~/config-files
+alias conf=$HOME/config-files
 
 # Python aliases
 alias py=python3.9
