@@ -2,7 +2,8 @@
 CONFIG_FILE_DIRECTORY="$(dirname $0)"
 source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
-source $CONFIG_FILE_DIRECTORY/nvm.zsh
+# # For NVM configurations if using
+# source $CONFIG_FILE_DIRECTORY/nvm.zsh
 
 TMUX=$HOME/.tmux.conf
 # test command can also be written [! -f "$TMUX"] or [[! -f "$TMUX"]]
