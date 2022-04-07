@@ -16,4 +16,7 @@ alias py=python3.9
 # Git aliases
 alias gfu='git fetch upstream'
 alias gmu='git merge upstream/$(git_main_branch)'
+alias gmm='git merge upstream/master'
 alias gfmu='git fetch upstream; git merge upstream/$(git_main_branch)'
+alias gfmm='git fetch upstream; git merge upstream/master'
+alias uncommit='git reset --soft HEAD^'
