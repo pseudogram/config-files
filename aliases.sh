@@ -23,3 +23,8 @@ alias gmm='git merge upstream/master'
 alias gfmu='git fetch upstream; git merge upstream/$(git_main_branch)'
 alias gfmm='git fetch upstream; git merge upstream/master'
 alias uncommit='git reset --soft HEAD^'
+
+# Vim renames
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="\vim"
