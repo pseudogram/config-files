@@ -96,18 +96,15 @@ set ts=2
 set sw=2
 " expand tabs to spaces
 set et
-
-" Nerdtree add and delete
-set modifiable
-
-" Use mouse to click
-:set mouse=a
+set modifiable " Nerdtree add and delete
+set mouse=a " Use mouse to click
+set ignorecase " Ignore case when searching using /
 
 " ____________________________________________________________________
 "                     Editor Visual Settings
 " ____________________________________________________________________
 
-:set relativenumber
+set relativenumber
 
 let g:gitgutter_async=0
 " let g:gitgutter_grep=''
@@ -126,8 +123,8 @@ let g:airline#extensions#tabline#enabled = 1
 " ____________________________________________________________________
 
 " Vim built in Spelling
-" :set spell
-:set nospell
+" set spell
+set nospell
 
 " Don't mark URL-like things as spelling errors
 " syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
