@@ -3,7 +3,7 @@
 " ____________________________________________________________________
 "                        Install Vim Plugins
 " ____________________________________________________________________
-
+  
 " Using the vim-plug plugin manager    -    https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 
 " Automatically install vim-plug if not already 
@@ -13,10 +13,29 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * " PlugInstall --sync | source $MYVIMRC
 endif
 
+
+" Primeagen remaps
+nnoremap <SPACE> <Nop>
+map <SPACE> <Leader>
+if has('nvim')
+  nnoremap <Leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+endif
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+
+if has('nvim')
+  " telescope depenedencies
+  Plug 'nvim-lua/plenary.nvim' 
+  Plug 'BurntSushi/ripgrep'
+  Plug 'nvim-telescope/telescope.nvim'
+endif
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'tpope/vim-fugitive'
+
 
 " Status & tab line that looks dope (like powerlevel 10k)
 Plug 'vim-airline/vim-airline'
@@ -74,6 +93,8 @@ Plug 'junegunn/fzf'
 " Initialize plugin system
 call plug#end()
 
+colorscheme gruvbox
+
 " `call plug#begin()` Automatically executes filetype plugin indent on and syntax enable. You can revert the settings after the call. e.g. filetype indent off, syntax off, etc.
 " DON'T UNCOMMENT!!
 " filetype indent off
@@ -99,6 +120,39 @@ set et
 set modifiable " Nerdtree add and delete
 set mouse=a " Use mouse to click
 set ignorecase " Ignore case when searching using /
+
+"  Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+" if has("patch-8.1.1564")
+"   " Recently vim can merge signcolumn and number column into one
+"   set signcolumn=number
+" else
+"   set signcolumn=yes
+" endif
+set signcolumn=yes
+
+" From Primeagen - https://youtu.be/DogKdiRx7ls
+set smartindent
+set exrc " use a local vimrc if it is presnet
+set nu
+set hidden
+set noerrorbells
+set nowrap
+set noswapfile
+set nobackup
+" Let's save undo info!
+if !isdirectory($HOME."/.vim")
+  call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+  call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
+set incsearch
+set scrolloff=8
+set colorcolumn=80
+set cmdheight=2 " more space for displaying messages
 
 " ____________________________________________________________________
 "                     Editor Visual Settings
@@ -254,14 +308,6 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -381,20 +427,20 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" " Mappings for CoCList
+" " Show all diagnostics.
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" " Manage extensions.
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" " Show commands.
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" " Find symbol of current document.
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" " Search workspace symbols.
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" " Do default action for next item.
+" " nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" " Do default action for previous item.
+" " nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" " Resume latest coc list.
+" " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
