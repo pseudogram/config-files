@@ -36,3 +36,6 @@ _fzf_comprun() {
   esac
 }
 
+# FZF_DEFAULT_COMMAND='find . -type f'
+# fzf --bind 'ctrl-d:reload(find . -type d),ctrl-f:reload($FZF_DEFAULT_COMMAND)' \
+#   --height=50% --layout=reverse
