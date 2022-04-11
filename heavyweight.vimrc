@@ -90,6 +90,8 @@ Plug 'junegunn/fzf'
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
+" Adds dev ions to other plugins (ie. nerdtree)
+Plug 'ryanoasis/vim-devicons'
 " Initialize plugin system
 call plug#end()
 
@@ -153,6 +155,8 @@ set incsearch
 set scrolloff=8
 set colorcolumn=80
 set cmdheight=2 " more space for displaying messages
+" esc to clear highlighting
+map <esc> :noh <CR>
 
 " ____________________________________________________________________
 "                     Editor Visual Settings
