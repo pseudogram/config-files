@@ -4,15 +4,12 @@
 "                        Install Vim Plugins
 " ____________________________________________________________________
   
-" Using the vim-plug plugin manager    -    https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
-
-" Automatically install vim-plug if not already 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * " PlugInstall --sync | source $MYVIMRC
+" Automatically install vim plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 
 " Primeagen remaps
 nnoremap <SPACE> <Nop>
@@ -32,7 +29,6 @@ if has('nvim')
   Plug 'BurntSushi/ripgrep'
   Plug 'nvim-telescope/telescope.nvim'
 endif
-
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 
@@ -51,6 +47,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'alvan/vim-closetag'
 
 " Spell Check
 Plug 'inkarkat/vim-ingo-library'
@@ -58,7 +55,7 @@ Plug 'inkarkat/vim-spellcheck'
 Plug 'kamykn/spelunker.vim'
 
 " Completion / intellisense
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 
 " Make sure you use single quotes
  
@@ -93,7 +90,9 @@ Plug 'junegunn/fzf'
 " Initialize plugin system
 call plug#end()
 
-colorscheme gruvbox
+if has('nvim')
+  colorscheme gruvbox
+endif
 
 " `call plug#begin()` Automatically executes filetype plugin indent on and syntax enable. You can revert the settings after the call. e.g. filetype indent off, syntax off, etc.
 " DON'T UNCOMMENT!!
@@ -264,6 +263,45 @@ let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord
 highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e
 highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
 
+
+" ____________________________________________________________________
+"                    closetag configuration
+" ____________________________________________________________________
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,tsx'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+" let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
 " ____________________________________________________________________
 "                    Conquer of Completion
 " ____________________________________________________________________
@@ -379,8 +417,8 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)<cr>
+nmap <leader>a  <Plug>(coc-codeaction-selected)<cr>
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
