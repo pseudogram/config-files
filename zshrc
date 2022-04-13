@@ -39,3 +39,5 @@ mcd ()
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
+
+bindkey -s ^f "echo hello\n"
