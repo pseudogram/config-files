@@ -21,6 +21,16 @@ if test ! -f "$VIMRC"; then
     ln -s $CONF_VIMRC $VIMRC
 fi
 
+NVIM_CONFIG_DIR=$HOME/.config/nvim
+NVIMRC=$NVIM_CONFIG_DIR/init.vim
+if test ! -f "$NVIMRC"; then
+    mkdir -p $NVIM_CONFIG_DIR
+    CONF_VIMRC=$CONFIG_FILE_DIRECTORY/heavyweight.vimrc
+    echo "nvim init.vim not found in $HOME/.config/nvim. Creating softlink to $CONF_VIMRC"
+    ln -s $CONF_VIMRC $NVIMRC
+fi
+
+
 
 # Make and cd into directory
 # https://unix.stackexchange.com/a/125386
