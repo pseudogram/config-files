@@ -89,6 +89,9 @@ Plug 'junegunn/fzf'
 
 " Adds dev ions to other plugins (ie. nerdtree)
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-rooter'
 " Initialize plugin system
 call plug#end()
 
