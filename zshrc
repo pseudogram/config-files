@@ -4,6 +4,9 @@ source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
 source $CONFIG_FILE_DIRECTORY/fzf.sh
 
+batless() {
+  bat --color=always $1|less -R 
+}
 
 # for i in `find -L $CONFIG_FILE_DIRECTORY/bin -type f`; do
 #   echo $i
@@ -31,7 +34,7 @@ fi
 
 VIMRC=$HOME/.vimrc
 if test ! -f "$VIMRC"; then
-  CONF_VIMRC=$CONFIG_FILE_DIRECTORY/heavyweight.vimrc
+  CONF_VIMRC=$CONFIG_FILE_DIRECTORY/vim/my.vimrc
   echo ".vimrc not found in $HOME. Creating softlink to $CONF_VIMRC"
   ln -s $CONF_VIMRC $VIMRC
 fi
@@ -40,7 +43,7 @@ NVIM_CONFIG_DIR=$HOME/.config/nvim
 NVIMRC=$NVIM_CONFIG_DIR/init.vim
 if test ! -f "$NVIMRC"; then
   mkdir -p $NVIM_CONFIG_DIR
-  CONF_VIMRC=$CONFIG_FILE_DIRECTORY/heavyweight.vimrc
+  CONF_VIMRC=$CONFIG_FILE_DIRECTORY/vim/my.vimrc
   echo "nvim init.vim not found in $HOME/.config/nvim. Creating softlink to $CONF_VIMRC"
   ln -s $CONF_VIMRC $NVIMRC
 fi
