@@ -59,3 +59,6 @@ mcd ()
   }
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
