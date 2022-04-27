@@ -96,12 +96,12 @@ call plug#end()
 " DON'T UNCOMMENT!!
 
 
-source $HOME/config-files/vim/personal.vim
-source $HOME/config-files/vim/theme.vim
-source $HOME/config-files/vim/vim-airline.vim
-source $HOME/config-files/vim/spelunker.vim
 source $HOME/config-files/vim/closetag.vim
 source $HOME/config-files/vim/coc.vim
+source $HOME/config-files/vim/personal.vim
+source $HOME/config-files/vim/spelunker.vim
+source $HOME/config-files/vim/theme.vim
+source $HOME/config-files/vim/vim-airline.vim
 
 if has('nvim')
   source $HOME/config-files/vim/nvim/telescope.vim
