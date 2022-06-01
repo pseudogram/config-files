@@ -62,3 +62,13 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# Set Python version
+# https://opensource.com/article/20/4/pyenv
+# https://realpython.com/intro-to-pyenv/#installing-pyenv
+#
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+PATH=$(pyenv root)/shims:$PATH
+

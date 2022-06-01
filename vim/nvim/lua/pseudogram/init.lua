@@ -8,5 +8,9 @@
 --  }
 --}
 
-require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.pyright.setup{
+--   on_attach = function() print("hello David")
+--   end,
+-- }
 
+require('pseudogram.lsp')
