@@ -43,9 +43,6 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-spellcheck'
 Plug 'kamykn/spelunker.vim'
 
-" Completion / intellisense
-Plug 'neoclide/coc.nvim'
-
 " Make sure you use single quotes
 
 " Plug 'junegunn/vim-easy-align'
@@ -87,6 +84,12 @@ if has('nvim')
   Plug 'nvim-lua/plenary.nvim' 
   Plug 'BurntSushi/ripgrep'
   Plug 'nvim-telescope/telescope.nvim'
+  
+  " Lsp Plugins - if nvim unavailable, use coc
+  Plug 'neovim/nvim-lspconfig'
+else
+  " Completion / intellisense
+  Plug 'neoclide/coc.nvim'
 endif
 
 " Initialize plugin system
@@ -97,7 +100,6 @@ call plug#end()
 
 
 source $HOME/config-files/vim/closetag.vim
-source $HOME/config-files/vim/coc.vim
 source $HOME/config-files/vim/personal.vim
 source $HOME/config-files/vim/spelunker.vim
 source $HOME/config-files/vim/theme.vim
@@ -105,7 +107,14 @@ source $HOME/config-files/vim/vim-airline.vim
 
 if has('nvim')
   source $HOME/config-files/vim/nvim/telescope.vim
+else
+  " Set up coc configurations only if nvim not in use
+  source $HOME/config-files/vim/coc.vim
 endif
+
+" My custom lua plugins
+lua require("pseudogram")
+
 
 " To break down vim config into multiple files   
 " https://www.gregjs.com/vim/2016/do-yourself-a-favor-and-modularize-your-vimrc-init-vim/
