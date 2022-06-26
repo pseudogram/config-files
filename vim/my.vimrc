@@ -87,6 +87,9 @@ if has('nvim')
   
   " Lsp Plugins - if nvim unavailable, use coc
   Plug 'neovim/nvim-lspconfig'
+
+  " Github copilot (AI pair programming)
+  Plug 'github/copilot.vim' 
 else
   " Completion / intellisense
   Plug 'neoclide/coc.nvim'

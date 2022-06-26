@@ -10,6 +10,7 @@ map <SPACE> <Leader>
 
 " remap jj to <ESC>
 imap jj <Esc>
+" nnoremap <Leader>rc :so $MYVIMRC
 
 " Tab settings   -   https://superuser.com/a/782592
 " softtabstop, sts : when you're editing a file and press the tab key, Vim uses this setting to define the width of the inserted tabulation (see softtabstop help, or type :help softtabstop in Vim).
