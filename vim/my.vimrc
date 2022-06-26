@@ -21,6 +21,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " Git Plugin
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
 " Status & tab line that looks dope (like powerlevel 10k)
 Plug 'vim-airline/vim-airline'
