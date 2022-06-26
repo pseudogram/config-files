@@ -108,16 +108,16 @@ source $HOME/config-files/vim/personal.vim
 source $HOME/config-files/vim/spelunker.vim
 source $HOME/config-files/vim/theme.vim
 source $HOME/config-files/vim/vim-airline.vim
+source $HOME/config-files/vim/sets.vim
 
 if has('nvim')
   source $HOME/config-files/vim/nvim/telescope.vim
+  " My custom lua plugins
+  lua require("pseudogram")
 else
   " Set up coc configurations only if nvim not in use
   source $HOME/config-files/vim/coc.vim
 endif
-
-" My custom lua plugins
-lua require("pseudogram")
 
 
 " To break down vim config into multiple files   
