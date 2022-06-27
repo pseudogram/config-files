@@ -98,4 +98,44 @@ set nospell
 " Don't mark URL-like things as spelling errors
 " syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 
+" ____________________________________________________________________
+"                     Old coc config things                  
+" ____________________________________________________________________
 
+" Everything below is a copy of the Coc example configuration from the githuB
+" repo
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+"
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
+"
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" ____________________________________________________________________
+"                     no idea configs...
+" ____________________________________________________________________
+
+
+" No idea what these commands do to be honest
+let g:terminal_scrollback_buffer_size = 100000
+set scrollback=100000
+
+" ____________________________________________________________________
+"                   Allow project level config 
+" ____________________________________________________________________
+" allow per-project configuration files `.vimrc`
+set exrc
+" prevents autocmd and shell commands running that you don't own
+set secure

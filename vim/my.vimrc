@@ -111,12 +111,10 @@ source $HOME/config-files/vim/theme.vim
 source $HOME/config-files/vim/vim-airline.vim
 source $HOME/config-files/vim/nvim/telescope.vim
 source $HOME/config-files/vim/vim-test.vim
+source $HOME/config-files/vim/personal.vim
 
 " My custom lua plugins
 lua require("pseudogram")
-let g:terminal_scrollback_buffer_size = 100000
-set scrollback=100000
-
 
 " To break down vim config into multiple files   
 " https://www.gregjs.com/vim/2016/do-yourself-a-favor-and-modularize-your-vimrc-init-vim/
