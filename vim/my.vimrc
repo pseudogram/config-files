@@ -109,7 +109,6 @@ source $HOME/config-files/vim/closetag.vim
 source $HOME/config-files/vim/spelunker.vim
 source $HOME/config-files/vim/theme.vim
 source $HOME/config-files/vim/vim-airline.vim
-source $HOME/config-files/vim/sets.vim
 source $HOME/config-files/vim/nvim/telescope.vim
 source $HOME/config-files/vim/vim-test.vim
 
