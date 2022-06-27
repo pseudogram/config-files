@@ -70,9 +70,11 @@ set undofile
 set incsearch
 set scrolloff=8
 set colorcolumn=80
-set cmdheight=2 " more space for displaying messages
+set cmdheight=1 " more space for displaying messages
 " esc to clear highlighting after a search
-map <esc> :noh <CR>
+map <esc> :nohls<CR>
+" set nohlsearch
+
 
 " ____________________________________________________________________
 "                     Editor Visual Settings

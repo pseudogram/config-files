@@ -43,6 +43,9 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-spellcheck'
 Plug 'kamykn/spelunker.vim'
 
+" Vim Merge tool
+Plug 'samoshkin/vim-mergetool'
+
 " Make sure you use single quotes
 
 " Plug 'junegunn/vim-easy-align'
@@ -79,6 +82,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-rooter'
 
+" Adds testing capabilities
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-dispatch'
+
 if has('nvim')
   " telescope depenedencies
   Plug 'nvim-lua/plenary.nvim' 
@@ -87,6 +94,7 @@ if has('nvim')
   
   " Lsp Plugins - if nvim unavailable, use coc
   Plug 'neovim/nvim-lspconfig'
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 else
   " Completion / intellisense
   Plug 'neoclide/coc.nvim'
@@ -98,18 +106,22 @@ call plug#end()
 " `call plug#begin()` Automatically executes filetype plugin indent on and syntax enable. You can revert the settings after the call. e.g. filetype indent off, syntax off, etc.
 " DON'T UNCOMMENT!!
 
-
+source $HOME/config-files/vim/vim-mergetool.vim
 source $HOME/config-files/vim/closetag.vim
 source $HOME/config-files/vim/personal.vim
 source $HOME/config-files/vim/spelunker.vim
 source $HOME/config-files/vim/theme.vim
 source $HOME/config-files/vim/vim-airline.vim
 source $HOME/config-files/vim/sets.vim
+source $HOME/config-files/vim/vim-test.vim
 
 if has('nvim')
   source $HOME/config-files/vim/nvim/telescope.vim
   " My custom lua plugins
   lua require("pseudogram")
+  let g:terminal_scrollback_buffer_size = 100000
+  set scrollback=100000
+
 else
   " Set up coc configurations only if nvim not in use
   source $HOME/config-files/vim/coc.vim
