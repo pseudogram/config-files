@@ -71,7 +71,8 @@ set undofile
 set incsearch
 set scrolloff=8
 set colorcolumn=80
-set cmdheight=2 " more space for displaying messages
+" Give more space for displaying messages.
+set cmdheight=1
 " esc to clear highlighting after a search
 map <esc> :noh <CR>
 

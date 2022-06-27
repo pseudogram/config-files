@@ -21,6 +21,8 @@ Plug 'ryanoasis/vim-devicons'
 
 " Git Plugin
 Plug 'tpope/vim-fugitive'
+
+" comment code with: gc
 Plug 'tpope/vim-commentary'
 
 " Status & tab line that looks dope (like powerlevel 10k)
@@ -68,7 +70,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " " Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf'
 
 " Unmanaged plugin (manually installed and updated)
@@ -80,45 +81,27 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-rooter'
 
-if has('nvim')
-  " telescope depenedencies
-  Plug 'nvim-lua/plenary.nvim' 
-  Plug 'BurntSushi/ripgrep'
-  Plug 'nvim-telescope/telescope.nvim'
-  
-  " Lsp Plugins - if nvim unavailable, use coc
-  Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim' 
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope.nvim'
 
-  " Github copilot (AI pair programming)
-  Plug 'github/copilot.vim' 
-else
-  " Completion / intellisense
-  Plug 'neoclide/coc.nvim'
-endif
+" Lsp Plugins - if nvim unavailable, use coc
+Plug 'neovim/nvim-lspconfig'
 
+" Github copilot (AI pair programming)
+Plug 'github/copilot.vim' 
 " Initialize plugin system
 call plug#end()
 
-" `call plug#begin()` Automatically executes filetype plugin indent on and syntax enable. You can revert the settings after the call. e.g. filetype indent off, syntax off, etc.
-" DON'T UNCOMMENT!!
-
-
 source $HOME/config-files/vim/closetag.vim
-source $HOME/config-files/vim/personal.vim
 source $HOME/config-files/vim/spelunker.vim
 source $HOME/config-files/vim/theme.vim
 source $HOME/config-files/vim/vim-airline.vim
 source $HOME/config-files/vim/sets.vim
+source $HOME/config-files/vim/nvim/telescope.vim
 
-if has('nvim')
-  source $HOME/config-files/vim/nvim/telescope.vim
-  " My custom lua plugins
-  lua require("pseudogram")
-else
-  " Set up coc configurations only if nvim not in use
-  source $HOME/config-files/vim/coc.vim
-endif
-
+" My custom lua plugins
+lua require("pseudogram")
 
 " To break down vim config into multiple files   
 " https://www.gregjs.com/vim/2016/do-yourself-a-favor-and-modularize-your-vimrc-init-vim/
