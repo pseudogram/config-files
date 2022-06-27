@@ -74,7 +74,9 @@ set colorcolumn=80
 " Give more space for displaying messages.
 set cmdheight=1
 " esc to clear highlighting after a search
-map <esc> :noh <CR>
+map <esc> :nohls<CR>
+" set nohlsearch
+
 
 " ____________________________________________________________________
 "                     Editor Visual Settings
