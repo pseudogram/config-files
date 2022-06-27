@@ -21,6 +21,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " Git Plugin
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
 " Status & tab line that looks dope (like powerlevel 10k)
 Plug 'vim-airline/vim-airline'
@@ -95,6 +96,9 @@ if has('nvim')
   " Lsp Plugins - if nvim unavailable, use coc
   Plug 'neovim/nvim-lspconfig'
   " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  " Github copilot (AI pair programming)
+  Plug 'github/copilot.vim' 
 else
   " Completion / intellisense
   Plug 'neoclide/coc.nvim'
