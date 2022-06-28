@@ -10,5 +10,4 @@ let g:test#echo_command = 0
 
 let test#strategy = "dispatch"
 let g:test#preserve_screen = 1
-"let g:test#javascript#runner = 'nx'
 set history=1000

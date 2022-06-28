@@ -52,7 +52,6 @@ set signcolumn=yes
 
 " From Primeagen - https://youtu.be/DogKdiRx7ls
 set smartindent
-set exrc " use a local vimrc if it is presnet
 set nu
 set hidden
 set noerrorbells
