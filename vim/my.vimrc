@@ -98,12 +98,18 @@ Plug 'neovim/nvim-lspconfig'
 
 " Github copilot (AI pair programming)
 Plug 'github/copilot.vim' 
+
+" A formatter tool for neovim
+Plug 'sbdchd/neoformat'
+
 " Initialize plugin system
 call plug#end()
 
 " `call plug#begin()` Automatically executes filetype plugin indent on and syntax enable. You can revert the settings after the call. e.g. filetype indent off, syntax off, etc.
 " DON'T UNCOMMENT!!
 
+
+source $HOME/config-files/vim/neoformat.vim
 source $HOME/config-files/vim/vim-mergetool.vim
 source $HOME/config-files/vim/closetag.vim
 source $HOME/config-files/vim/spelunker.vim
