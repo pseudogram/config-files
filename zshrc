@@ -1,11 +1,17 @@
-CONFIG_FILE_DIRECTORY="$(dirname $0)"
+# Set this variable as an env variable during install
+CONFIG_FILE_DIRECTORY=$HOME/config-files
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
-source $CONFIG_FILE_DIRECTORY/fzf.sh
 
-#TODO: install powerlevel10k
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
+# functions
 batless() {
   bat --color=always $1|less -R 
 }
@@ -51,3 +57,21 @@ export PYENV_ROOT="$HOME/.pyenv"
 PATH=$(pyenv root)/shims:$PATH
 eval "$(pyenv init -)"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#  Use fzf keybindings and such
+source $CONFIG_FILE_DIRECTORY/fzf.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Oh my zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+# powerlevel10k configuration
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
