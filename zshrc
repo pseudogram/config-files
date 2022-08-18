@@ -44,5 +44,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 # export PATH="$HOME/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
 PATH=$(pyenv root)/shims:$PATH
-
+eval "$(pyenv init -)"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
