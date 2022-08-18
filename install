@@ -9,9 +9,15 @@ ln -s $CONF_ZSHRC ~/.zshrc
 # eg.
 # chmod u+x install_scripts/fzf
 
-./install_scripts/nvm
-./install_scripts/fzf
-./install_scripts/git
+# install homebrew & homebrew files
+# ./install_scripts/homebrew
+
+# ./install_scripts/git
+# ./install_scripts/nvm
+# ./install_scripts/fzf
+./install_scripts/tmux
+
+
 
 NVIM_CONFIG_DIR=~/.config/nvim
 if [ ! -d "$NVIM_CONFIG_DIR" ]; then

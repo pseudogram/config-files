@@ -4,7 +4,7 @@
 # echo "Script executed from: ${PWD}"
 # 
 # To figure out the directory of a file that's been executed run:
-# BASEDIR=$(dirname $0)
+BASEDIR=$(dirname $0)
 # echo "Script location: ${BASEDIR}"
 # 
 # Note: BASEDIR does not change when running a file within a file.
