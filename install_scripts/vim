@@ -1,0 +1,36 @@
+#!/bin/bash
+source $PWD/helpful_functions
+
+
+echo "________________________________________
+INSTALL SCRIPT: VIM Start
+"
+
+# Setup vim config
+if ! [ -L $HOME/.vimrc ] ; then
+    my_vimrc=$PWD/vim/.vimrc
+    symlink_vimrc_path=$HOME/.vimrc
+    echo "INSTALL SCRIPT: $symlink_vimrc_path not symlinked. Creating softlink to $my_vimrc"
+    
+    backup_and_move_existing_file $symlink_vimrc_path
+    ln -s $my_vimrc $symlink_vimrc_path
+else
+    echo "INSTALL SCRIPT: .vimrc already symlinked"
+fi
+
+# Setup nvim config
+config_path=$HOME/.config
+symlink_nvim_config_path=$config_path/nvim
+if ! [ -L $symlink_nvim_config_path ]; then
+    my_nvm_config=$PWD/vim/nvim
+    echo "INSTALL SCRIPT: $symlink_nvim_config_path not symlinked. Creating softlink to $my_nvm_config"
+    mkdir -p $cd 
+    ln -s $my_nvm_config $symlink_nvim_config_path
+else
+    echo "INSTALL SCRIPT: .config/nvim already symlinked"
+fi
+
+echo "
+INSTALL SCRIPT: VIM Finish
+________________________________________"
+

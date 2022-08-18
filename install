@@ -16,6 +16,7 @@ ln -s $CONF_ZSHRC ~/.zshrc
 ./install_scripts/nvm
 ./install_scripts/fzf
 ./install_scripts/tmux
+./install_scripts/vim
 
 
 

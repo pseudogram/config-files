@@ -23,23 +23,6 @@ addToPathFront $CONFIG_FILE_DIRECTORY/bin
 # # For NVM configurations if using
 source $CONFIG_FILE_DIRECTORY/nvm.zsh
 
-VIMRC=$HOME/.vimrc
-if test ! -f "$VIMRC"; then
-  CONF_VIMRC=$CONFIG_FILE_DIRECTORY/vim/my.vimrc
-  echo ".vimrc not found in $HOME. Creating softlink to $CONF_VIMRC"
-  ln -s $CONF_VIMRC $VIMRC
-fi
-
-NVIM_CONFIG_DIR=$HOME/.config/nvim
-NVIMRC=$NVIM_CONFIG_DIR/init.vim
-if test ! -f "$NVIMRC"; then
-  mkdir -p $NVIM_CONFIG_DIR
-  CONF_VIMRC=$CONFIG_FILE_DIRECTORY/vim/my.vimrc
-  echo "nvim init.vim not found in $HOME/.config/nvim. Creating softlink to $CONF_VIMRC"
-  ln -s $CONF_VIMRC $NVIMRC
-fi
-
-
 
 # Make and cd into directory
 # https://unix.stackexchange.com/a/125386
