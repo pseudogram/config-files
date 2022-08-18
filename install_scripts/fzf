@@ -3,6 +3,7 @@
 echo "________________________________________
 INSTALL SCRIPT: FZF Start
 "
+
 if [[ ! $(command -v fzf) ]] ; then
 
 
