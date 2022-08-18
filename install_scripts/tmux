@@ -29,6 +29,16 @@ else
     # git config --global --unset user.email
 fi
 
+
+if ! [ -d $HOME/.tmux-themepack ] ; then
+    echo "INSTALL SCRIPT: .tmux-themepack not installed, cloning from github"
+    
+    git clone https://github.com/jimeh/tmux-themepack.git $HOME/.tmux-themepack
+else
+    echo "INSTALL SCRIPT: .tmux-themepack already installed"
+fi
+
+
 echo "
 INSTALL SCRIPT: TMUX Finish
 ________________________________________"
