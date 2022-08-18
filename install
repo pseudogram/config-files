@@ -9,12 +9,12 @@ CONF_ZSHRC=$CONFIG_DIRECTORY/zshrc
 # eg.
 # chmod u+x install_scripts/fzf
 
-# ./install_scripts/homebrew
-# ./install_scripts/git
-# ./install_scripts/nvm
-# ./install_scripts/fzf
-# ./install_scripts/tmux
-# ./install_scripts/vim
-# ./install_scripts/pyenv
-# ./install_scripts/node_globals
+./install_scripts/homebrew
+./install_scripts/git
+./install_scripts/nvm
+./install_scripts/fzf
+./install_scripts/tmux
+./install_scripts/vim
+./install_scripts/pyenv
+./install_scripts/node_globals
 ./install_scripts/zsh
