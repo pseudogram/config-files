@@ -4,6 +4,11 @@ echo "________________________________________
 INSTALL SCRIPT: ZSH Start
 "
 
+# TODO:
+# - # Set CONFIG_FILE_DIRECTORY, and add to zshrc
+# - # add p10k.zsh and shit at bottom of zshrc file
+
+
 if ! [ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ] ; then
     echo "INSTALL SCRIPT:  ohmyzsh powerlevel10k not installed, cloning from github"
     
@@ -11,6 +16,8 @@ if ! [ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ] ; then
 else
     echo "INSTALL SCRIPT: ohmyzsh powerlevel10k already installed"
 fi
+
+
 
 echo "
 INSTALL SCRIPT: ZSH Finish
