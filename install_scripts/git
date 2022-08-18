@@ -1,0 +1,53 @@
+#!/bin/bash
+BASEDIR=$(dirname $0)
+source $PWD/helpful_functions
+
+
+echo "________________________________________
+INSTALL SCRIPT: GIT Start
+"
+
+# Set global email
+if [[ ! $(git config --list | grep email) ]] ; then
+    echo "INSTALL SCRIPT: setting global user email"
+
+    message="What email would you like to use for your global git config?"
+    title="Shell Install Script"
+    subtitle="git"
+    # sound_name="Blow"\
+
+    mac_notification_banner "$message" "$title" "$subtitle" "$sound_name"
+    get_user_input "$message"
+
+    git config --global user.email "$user_input"
+else
+    echo "INSTALL SCRIPT: global email already set"
+    git config --list | grep email
+    # to unset
+    # git config --global --unset user.email
+fi
+
+# Set global name
+if [[ ! $(git config --list | grep user.name) ]] ; then
+    echo "INSTALL SCRIPT: setting global user name"
+
+    message="What name would you like to use for your global git config?"
+    title="Shell Install Script"
+    subtitle="git"
+    # sound_name="Blow"\
+
+    mac_notification_banner "$message" "$title" "$subtitle" "$sound_name"
+    get_user_input "$message"
+
+    git config --global user.name "$user_input"
+else
+    echo "INSTALL SCRIPT: global name already set"
+    git config --list | grep user.name
+    # to unset
+    # git config --global --unset user.name
+fi
+
+echo "
+INSTALL SCRIPT: GIT Finish
+________________________________________"
+

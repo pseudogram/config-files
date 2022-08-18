@@ -11,7 +11,7 @@ ln -s $CONF_ZSHRC ~/.zshrc
 
 ./install_scripts/nvm
 ./install_scripts/fzf
-
+./install_scripts/git
 
 NVIM_CONFIG_DIR=~/.config/nvim
 if [ ! -d "$NVIM_CONFIG_DIR" ]; then
