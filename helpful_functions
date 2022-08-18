@@ -12,21 +12,20 @@ BASEDIR=$(dirname $0)
 
 # Sends a notification banner to mac os
 # 
-# Takes 4 parameters
-# message="What email would you like to use for your global git config?"
-# title="Shell Install Script"
-# subtitle="git"
-# sound_name="Blow"    # optional
-# 
 # Sounds can be found in:
 #    /System/Library/Sounds
 #    ~/Library/Sounds
 # 
-# Ref:
+# References:
 #     https://apple.stackexchange.com/questions/57412/how-can-i-trigger-a-notification-center-notification-from-an-applescript-or-shel
+# 
+# Args:
+#   $1:message      eg. "What email would you like to use for your global git config?"
+#   $2:title        eg. "Shell Install Script"
+#   $3:subtitle     eg. "git"
+#   $4:sound_name?  eg. "Blow"
 function mac_notification_banner()
 {
-
     message=$1
     title=$2
     subtitle=$3
@@ -42,17 +41,20 @@ function mac_notification_banner()
 
 # Make a sound
 # 
-# Ref:
+# References:
 #   https://stackoverflow.com/questions/1143386/in-a-bash-script-command-how-can-i-make-a-pc-beep-noise-or-play-a-sound-file
 function make_sound()
 {
     echo -en "\007"
 }
 
-# Makes a sound, reads message then takes user inptu and returns it
+# Makes a sound, reads message then takes user input and returns it in the variable $user_input
 # 
-# Takes 1 parameters
-# message="What email your email?"
+# Args:
+#     $1:message    eg. "What email your email?"
+#
+# Returns:
+#     user_input
 function get_user_input(){
     message=$1
 
@@ -60,3 +62,21 @@ function get_user_input(){
     echo $message
     read user_input
 }
+
+# Checks for a file, if it exists moves it to the same location with .pre-install appended to file name 
+# 
+# Args:
+#     $1:file_at    eg. "What email your email?"
+#
+# Returns:
+#     file_path
+function backup_and_move_existing_file(){
+    file_path=$1
+    if [[ -e $file_path || -f $file_path ]] ; then
+        
+        echo "$file_path found, moving to $file_path.pre-install"
+
+        mv $file_path $file_path.pre-install
+    fi
+}
+
