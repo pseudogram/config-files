@@ -12,9 +12,9 @@ ln -s $CONF_ZSHRC ~/.zshrc
 # install homebrew & homebrew files
 # ./install_scripts/homebrew
 
-# ./install_scripts/git
-# ./install_scripts/nvm
-# ./install_scripts/fzf
+./install_scripts/git
+./install_scripts/nvm
+./install_scripts/fzf
 ./install_scripts/tmux
 
 
