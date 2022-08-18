@@ -1,7 +1,17 @@
 #!/bin/zsh
+CONFIG_DIRECTORY="$(dirname $0)"
+CONF_ZSHRC=$CONFIG_DIRECTORY/zshrc
+ln -s $CONF_ZSHRC ~/.zshrc
 
-# Install fzf keybindings and such
-$(brew --prefix)/opt/fzf/install
+
+# to make file executeable run:
+# chmod u+x <file_name>
+# eg.
+# chmod u+x install_scripts/fzf
+
+./install_scripts/nvm
+./install_scripts/fzf
+
 
 NVIM_CONFIG_DIR=~/.config/nvim
 if [ ! -d "$NVIM_CONFIG_DIR" ]; then
@@ -22,5 +32,4 @@ then
     echo "The pyright npm module is missing globally, it's needed for nvim lsp"
     sudo npm install -g pyright
 fi
-
 

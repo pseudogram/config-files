@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "________________________________________
+INSTALL SCRIPT: FZF Start
+"
+if [[ ! $(command -v fzf) ]] ; then
+
+
+    echo "INSTALL SCRIPT: install fzf"
+
+    echo "INSTALL SCRIPT: install fzf"
+    brew install fzf
+
+    echo "INSTALL SCRIPT: install fzf key bindings"
+    $(brew --prefix)/opt/fzf/install
+
+
+else
+    echo "INSTALL SCRIPT: fzf already installed"
+fi
+
+echo "
+INSTALL SCRIPT: FZF Finish
+________________________________________"
