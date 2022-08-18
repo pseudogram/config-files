@@ -1,0 +1,11 @@
+echo "________________________________________
+INSTALL SCRIPT: Homebrew Start
+"
+
+CONFIG_DIRECTORY="$(dirname $0)"
+
+brew bundle --file $PWD/Brewfile
+
+echo "
+INSTALL SCRIPT: Homebrew Finish
+________________________________________"
