@@ -7,5 +7,6 @@ I was inspired by one of my teachers from work, amujaba4.
 From this directory run.
 
 ```shell
+# you must cd into the root of this project first.
 ./install
 ```
