@@ -3,6 +3,9 @@ source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
 source $CONFIG_FILE_DIRECTORY/fzf.sh
 
+#TODO: install powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 batless() {
   bat --color=always $1|less -R 
 }
