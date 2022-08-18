@@ -1,4 +1,3 @@
-
 CONFIG_FILE_DIRECTORY="$(dirname $0)"
 source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
