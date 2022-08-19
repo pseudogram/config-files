@@ -8,7 +8,7 @@ INSTALL SCRIPT: VIM Start
 
 # Setup vim config
 if ! [ -L $HOME/.vimrc ] ; then
-    my_vimrc=$PWD/vim/.vimrc
+    my_vimrc=$PWD/vim/vimrc
     symlink_vimrc_path=$HOME/.vimrc
     echo "INSTALL SCRIPT: $symlink_vimrc_path not symlinked. Creating softlink to $my_vimrc"
     
