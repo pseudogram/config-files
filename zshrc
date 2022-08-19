@@ -10,41 +10,12 @@ CONFIG_FILE_DIRECTORY=$HOME/config-files
 
 source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
-
-# functions
-batless() {
-  bat --color=always $1|less -R 
-}
-
-# for i in `find -L $CONFIG_FILE_DIRECTORY/bin -type f`; do
-#   echo $i
-#   source $i
-# done
-
-addToPathFront() {
-  if [[ "$PATH" != *"$1"*  ]]; then
-    export PATH=$1:$PATH
-  fi
-}
-
+source $CONFIG_FILE_DIRECTORY/utils.sh
+source $CONFIG_FILE_DIRECTORY/nvm.zsh
+source $CONFIG_FILE_DIRECTORY/fzf.sh
 
 addToPathFront $CONFIG_FILE_DIRECTORY/bin
-# # For NVM configurations if using
-source $CONFIG_FILE_DIRECTORY/nvm.zsh
-
-
-# Make and cd into directory
-# https://unix.stackexchange.com/a/125386
-mcd ()
-{
-  mkdir -p -- "$1" &&
-    cd -P -- "$1"
-  }
-
 bindkey -s ^f "tmux-sessionizer\n"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # Set Python version
 # https://opensource.com/article/20/4/pyenv
@@ -59,9 +30,6 @@ eval "$(pyenv init -)"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 
-#  Use fzf keybindings and such
-source $CONFIG_FILE_DIRECTORY/fzf.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Oh my zsh
 export ZSH="$HOME/.oh-my-zsh"
