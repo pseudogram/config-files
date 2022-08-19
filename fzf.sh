@@ -1,4 +1,4 @@
-a# Need to source the autocompletion file because there seems to be an issue with fuzzy completion
+# Need to source the autocompletion file because there seems to be an issue with fuzzy completion
 # source /usr/local/Cellar/fzf/0.25.1/shell/completion.zsh
 source `brew --prefix fzf`/shell/completion.zsh
 
