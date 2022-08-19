@@ -1,4 +1,4 @@
-# Need to source the autocompletion file because there seems to be an issue with fuzzy completion
+a# Need to source the autocompletion file because there seems to be an issue with fuzzy completion
 # source /usr/local/Cellar/fzf/0.25.1/shell/completion.zsh
 source `brew --prefix fzf`/shell/completion.zsh
 
@@ -45,3 +45,7 @@ _fzf_comprun() {
 #       --height=50% --layout=reverse
 # 
 # bindkey '^f' FZF_DEFAULT_COMMAND
+
+
+# this should be the last command
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
