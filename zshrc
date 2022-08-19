@@ -73,3 +73,4 @@ source $ZSH/oh-my-zsh.sh
 # powerlevel10k configuration
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+echo Ready Boss!
