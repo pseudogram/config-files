@@ -8,24 +8,17 @@ CONFIG_FILE_DIRECTORY=$HOME/config-files
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
+
 source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
 source $CONFIG_FILE_DIRECTORY/utils.sh
-source $CONFIG_FILE_DIRECTORY/nvm.zsh
+# source $CONFIG_FILE_DIRECTORY/nvm.zsh
 source $CONFIG_FILE_DIRECTORY/fzf.sh
 source $CONFIG_FILE_DIRECTORY/pyenv.sh
 source $CONFIG_FILE_DIRECTORY/ohmyzsh.sh
 
 addToPathFront $CONFIG_FILE_DIRECTORY/bin
 bindkey -s ^f "tmux-sessionizer\n"
-
-
-# Oh my zsh
-export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="gozilla"
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
 
 # powerlevel10k configuration
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
