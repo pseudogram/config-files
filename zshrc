@@ -13,22 +13,10 @@ source $CONFIG_FILE_DIRECTORY/env-vars.sh
 source $CONFIG_FILE_DIRECTORY/utils.sh
 source $CONFIG_FILE_DIRECTORY/nvm.zsh
 source $CONFIG_FILE_DIRECTORY/fzf.sh
+source $CONFIG_FILE_DIRECTORY/pyenv.sh
 
 addToPathFront $CONFIG_FILE_DIRECTORY/bin
 bindkey -s ^f "tmux-sessionizer\n"
-
-# Set Python version
-# https://opensource.com/article/20/4/pyenv
-# https://realpython.com/intro-to-pyenv/#installing-pyenv
-#
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-PATH=$(pyenv root)/shims:$PATH
-eval "$(pyenv init -)"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
 
 
 # Oh my zsh
