@@ -14,6 +14,7 @@ source $CONFIG_FILE_DIRECTORY/utils.sh
 source $CONFIG_FILE_DIRECTORY/nvm.zsh
 source $CONFIG_FILE_DIRECTORY/fzf.sh
 source $CONFIG_FILE_DIRECTORY/pyenv.sh
+source $CONFIG_FILE_DIRECTORY/ohmyzsh.sh
 
 addToPathFront $CONFIG_FILE_DIRECTORY/bin
 bindkey -s ^f "tmux-sessionizer\n"
