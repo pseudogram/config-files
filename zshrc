@@ -21,6 +21,6 @@ addToPathFront $CONFIG_FILE_DIRECTORY/bin
 bindkey -s ^f "tmux-sessionizer\n"
 
 # powerlevel10k configuration
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 echo Ready Boss!
