@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# To determine out where a process has been run from use ${PWD}
+# echo "Script executed from: ${PWD}"
+# 
+# To figure out the directory of a file that's been executed run:
+BASEDIR=$(dirname $0)
+# echo "Script location: ${BASEDIR}"
+# 
+# Note: BASEDIR does not change when running a file within a file.
+
+
+# Sends a notification banner to mac os
+# 
+# Sounds can be found in:
+#    /System/Library/Sounds
+#    ~/Library/Sounds
+# 
+# References:
+#     https://apple.stackexchange.com/questions/57412/how-can-i-trigger-a-notification-center-notification-from-an-applescript-or-shel
+# 
+# Args:
+#   $1:message      eg. "What email would you like to use for your global git config?"
+#   $2:title        eg. "Shell Install Script"
+#   $3:subtitle     eg. "git"
+#   $4:sound_name?  eg. "Blow"
+function mac_notification_banner()
+{
+    message=$1
+    title=$2
+    subtitle=$3
+    sound_name=$4
+    if [ $sound_name ]; then
+        use_sound="sound name \"$sound_name\""
+    fi
+
+    script="display notification \"$message\" with title \"$title\" subtitle \"$subtitle\"$use_sound"
+    osascript -e "$script"
+}
+
+
+# Make a sound
+# 
+# References:
+#   https://stackoverflow.com/questions/1143386/in-a-bash-script-command-how-can-i-make-a-pc-beep-noise-or-play-a-sound-file
+function make_sound()
+{
+    echo -en "\007"
+}
+
+# Makes a sound, reads message then takes user input and returns it in the variable $user_input
+# 
+# Args:
+#     $1:message    eg. "What email your email?"
+#
+# Returns:
+#     user_input
+function get_user_input(){
+    message=$1
+
+    make_sound
+    echo $message
+    read user_input
+}
+
+# Checks for a file, if it exists moves it to the same location with .pre-install appended to file name 
+# 
+# Args:
+#     $1:file_at    eg. "What email your email?"
+#
+# Returns:
+#     file_path
+function backup_and_move_existing_file(){
+    file_path=$1
+    if [[ -e $file_path || -f $file_path ]] ; then
+        
+        echo "$file_path found, moving to $file_path.pre-install"
+
+        mv $file_path $file_path.pre-install
+    fi
+}
+

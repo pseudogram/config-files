@@ -2,10 +2,16 @@
 
 I was inspired by one of my teachers from work, amujaba4.
 
-## Setting up the environment
+# Install configurations
 
-1. ITerm
-   - https://iterm2.com/documentation-shell-integration.html
-     ```shell
-         source ~/.iterm2_shell_integration.zsh
-      ```
+From this directory run.
+
+```shell
+# you must cd into the root of this project first.
+./install
+```
+
+# Themes I use
+
+https://github.com/navarasu/onedark.nvim
+https://github.com/one-dark/iterm-one-dark-theme

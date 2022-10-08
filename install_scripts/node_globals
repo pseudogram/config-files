@@ -1,0 +1,28 @@
+#!/bin/bash
+source $PWD/helpful_functions
+
+echo "________________________________________
+INSTALL SCRIPT: Node globals Start
+"
+
+# Pyright - Python language server, for nvim-lsp
+if [[ ! $(command -v pyright) ]] ; then
+    echo "INSTALL SCRIPT: pyright is missing, it's needed for nvim lsp"
+
+    message="Password needed to install pyright globally"
+    title="Shell Install Script"
+    subtitle="Node globals"
+    # sound_name="Blow"\
+
+    mac_notification_banner "$message" "$title" "$subtitle" "$sound_name"
+    make_sound
+
+    sudo npm install -g pyright
+else
+    echo "INSTALL SCRIPT: pyright already installed"
+fi
+
+echo "
+INSTALL SCRIPT: Node globals Finish
+________________________________________"
+

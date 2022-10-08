@@ -1,26 +1,20 @@
 #!/bin/zsh
-
-# Install fzf keybindings and such
-$(brew --prefix)/opt/fzf/install
-
-NVIM_CONFIG_DIR=~/.config/nvim
-if [ ! -d "$NVIM_CONFIG_DIR" ]; then
-    echo "nvim config directory not found, linking ~/.config/nvim to config-files/vim/nvim"
-    ln -s ~/config-files/vim/nvim ~/.config/nvim 
-fi
-
-# Github like diffs in your terminal - https://github.com/banga/git-split-diffs
-if ! command -v git-split-diffs  &> /dev/null
-then
-    echo "git-split-diffs could not be found, attempting to install globally by npm"
-    sudo npm install -g git-split-diffs
-    git config --global core.pager "git-split-diffs --color | less -RFX"
-fi
-
-if ! command -v pyright  &> /dev/null
-then
-    echo "The pyright npm module is missing globally, it's needed for nvim lsp"
-    sudo npm install -g pyright
-fi
+CONFIG_DIRECTORY="$(dirname $0)"
+CONF_ZSHRC=$CONFIG_DIRECTORY/zshrc
+# ln -s $CONF_ZSHRC ~/.zshrc
 
 
+# to make file executeable run:
+# chmod u+x <file_name>
+# eg.
+# chmod u+x install_scripts/fzf
+
+./install_scripts/homebrew
+./install_scripts/git
+./install_scripts/nvm
+./install_scripts/fzf
+./install_scripts/tmux
+./install_scripts/vim
+./install_scripts/pyenv
+./install_scripts/node_globals
+./install_scripts/zsh

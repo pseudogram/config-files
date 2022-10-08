@@ -45,3 +45,7 @@ _fzf_comprun() {
 #       --height=50% --layout=reverse
 # 
 # bindkey '^f' FZF_DEFAULT_COMMAND
+
+
+# this should be the last command
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

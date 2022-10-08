@@ -1,0 +1,45 @@
+#!/bin/bash
+source $PWD/helpful_functions
+
+
+echo "________________________________________
+INSTALL SCRIPT: TMUX Start
+"
+
+# Set global tmux
+function existing_tmux_conf(){
+    if [ -e $HOME/.tmux.conf ] ; then
+        echo "INSTALL SCRIPT: $HOME/.tmux.conf found, moving to $HOME/.tmux.conf.pre-install"
+
+        mv $HOME/.tmux.conf $HOME/.tmux.conf.pre-install
+    fi
+}
+
+if ! [ -L $HOME/.tmux.conf ] ; then
+    tmux_conf=$BASEDIR/tmux.conf
+    echo "INSTALL SCRIPT: .tmux.conf not symlinked $HOME. Creating softlink to $tmux_conf"
+    
+    existing_tmux_conf
+
+    ln -s $tmux_conf $TMUX
+else
+    echo "INSTALL SCRIPT: tmux config file already symlinked"
+    # git config --list | grep email
+    # to unset
+    # git config --global --unset user.email
+fi
+
+
+if ! [ -d $HOME/.tmux-themepack ] ; then
+    echo "INSTALL SCRIPT: .tmux-themepack not installed, cloning from github"
+    
+    git clone https://github.com/jimeh/tmux-themepack.git $HOME/.tmux-themepack
+else
+    echo "INSTALL SCRIPT: .tmux-themepack already installed"
+fi
+
+
+echo "
+INSTALL SCRIPT: TMUX Finish
+________________________________________"
+

@@ -1,0 +1,79 @@
+#!/bin/bash
+source $PWD/helpful_functions
+
+
+echo "________________________________________
+INSTALL SCRIPT: GIT Start
+"
+
+# Set global email
+if [[ ! $(git config --list | grep email) ]] ; then
+    echo "INSTALL SCRIPT: setting global user email"
+
+    message="What email would you like to use for your global git config?"
+    title="Shell Install Script"
+    subtitle="git"
+    # sound_name="Blow"\
+
+    mac_notification_banner "$message" "$title" "$subtitle" "$sound_name"
+    get_user_input "$message"
+
+    git config --global user.email "$user_input"
+else
+    echo "INSTALL SCRIPT: global email already set"
+    git config --list | grep email
+    # to unset
+    # git config --global --unset user.email
+fi
+
+# Set global name
+if [[ ! $(git config --list | grep user.name) ]] ; then
+    echo "INSTALL SCRIPT: setting global user name"
+
+    message="What name would you like to use for your global git config?"
+    title="Shell Install Script"
+    subtitle="git"
+    # sound_name="Blow"\
+
+    mac_notification_banner "$message" "$title" "$subtitle" "$sound_name"
+    get_user_input "$message"
+
+    git config --global user.name "$user_input"
+else
+    echo "INSTALL SCRIPT: global name already set"
+    git config --list | grep user.name
+    # to unset
+    # git config --global --unset user.name
+fi
+
+
+if [ $(command -v delta) ] && [[ ! $(git config --list | grep core.pager) ]] ; then
+    echo "INSTALL SCRIPT: setting git delta as pager" 
+
+    echo "
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+" >> $HOME/.gitconfig
+else
+    echo "INSTALL SCRIPT: git pager already set"
+fi
+
+echo "
+INSTALL SCRIPT: GIT Finish
+________________________________________"

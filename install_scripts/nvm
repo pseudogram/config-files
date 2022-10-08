@@ -1,0 +1,39 @@
+
+#!/bin/bash
+
+echo "________________________________________
+INSTALL SCRIPT: NVM Start
+"
+
+
+# Install NVM
+if ! [ -d $NVM_DIR ] ; then
+    echo "INSTALL SCRIPT: nvm not installed, installing"
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+else
+    echo "INSTALL SCRIPT: nvm already installed"
+fi
+
+# Load NVM so this script shell session has access to it
+if [[ ! $(command -v nvm) ]] ; then
+    echo "INSTALL SCRIPT: loading nvm command"
+
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+else
+    echo "INSTALL SCRIPT: nvm already loaded"
+fi
+
+# Install the lastest lts version of node if no default nvm version set (and set as defaut version)
+if [[ ! $(nvm ls | grep -v N/A | grep default) ]] ; then
+    echo "INSTALL SCRIPT: set default nvm"
+    
+    nvm install --lts
+else
+    echo "INSTALL SCRIPT: default nvm already set"
+fi
+
+echo "
+INSTALL SCRIPT: NVM Finish
+________________________________________"
