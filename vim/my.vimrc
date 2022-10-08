@@ -102,12 +102,14 @@ Plug 'github/copilot.vim'
 " A formatter tool for neovim
 Plug 'sbdchd/neoformat'
 
+" A linter for neovim
+Plug 'mfussenegger/nvim-lint'
+
 " Initialize plugin system
 call plug#end()
 
 " `call plug#begin()` Automatically executes filetype plugin indent on and syntax enable. You can revert the settings after the call. e.g. filetype indent off, syntax off, etc.
 " DON'T UNCOMMENT!!
-
 
 source $HOME/config-files/vim/neoformat.vim
 source $HOME/config-files/vim/vim-mergetool.vim
@@ -121,6 +123,7 @@ source $HOME/config-files/vim/personal.vim
 
 " My custom lua plugins
 lua require("pseudogram")
+au BufWritePost <buffer> lua require('lint').try_lint()
 
 " To break down vim config into multiple files   
 " https://www.gregjs.com/vim/2016/do-yourself-a-favor-and-modularize-your-vimrc-init-vim/

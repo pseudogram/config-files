@@ -22,7 +22,7 @@ addToPathFront() {
 
 addToPathFront $CONFIG_FILE_DIRECTORY/bin
 # # For NVM configurations if using
-source $CONFIG_FILE_DIRECTORY/nvm.zsh
+# source $CONFIG_FILE_DIRECTORY/nvm.zsh
 
 TMUX=$HOME/.tmux.conf
 # test command can also be written [! -f "$TMUX"] or [[! -f "$TMUX"]]
