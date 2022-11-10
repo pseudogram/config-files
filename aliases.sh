@@ -14,7 +14,8 @@ alias cl=clear
 alias conf=$HOME/config-files
 
 # Python aliases
-alias py=python3.9
+alias py=python3.10
+alias bpy='python3.10 -m bpython'
 
 # Git aliases
 alias gfu='git fetch upstream'
