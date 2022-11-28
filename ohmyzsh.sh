@@ -4,6 +4,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="gozilla"
 
 plugins=(git nvm)
-export NVM_LAZY=1
+zstyle ':omz:plugins:nvm' lazy true
 
 source $ZSH/oh-my-zsh.sh
