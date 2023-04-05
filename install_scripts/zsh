@@ -14,6 +14,8 @@ if ! [ -d $HOME/.oh-my-zsh ] ; then
     
     # Install script from https://ohmyz.sh/#install
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    sudo mv $HOME/.zshrc $HOME.zshrc.post-oh-my-zsh
+    sudo mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 else
     echo "INSTALL SCRIPT: ohmyzsh installed"
 fi
