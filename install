@@ -19,3 +19,5 @@ $CONFIG_DIRECTORY/install_scripts/vim $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/pyenv $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/node_globals $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/zsh $CONFIG_DIRECTORY
+
+$(brew --prefix)/opt/fzf/install
