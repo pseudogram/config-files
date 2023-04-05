@@ -47,5 +47,5 @@ _fzf_comprun() {
 # bindkey '^f' FZF_DEFAULT_COMMAND
 
 
-# this should be the last command
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# this should be the last command, and it is in zshrc
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
