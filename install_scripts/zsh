@@ -9,6 +9,15 @@ INSTALL SCRIPT: ZSH Start
 # - # add p10k.zsh and shit at bottom of zshrc file
 
 
+if ! [ -d $HOME/.oh-my-zsh ] ; then
+    echo "INSTALL SCRIPT:  ohmyzsh not installed. Retrieving and running install script"
+    
+    # Install script from https://ohmyz.sh/#install
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+    echo "INSTALL SCRIPT: ohmyzsh installed"
+fi
+
 if ! [ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ] ; then
     echo "INSTALL SCRIPT:  ohmyzsh powerlevel10k not installed, cloning from github"
     
