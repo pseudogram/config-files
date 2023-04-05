@@ -1,32 +1,27 @@
 #!/bin/bash
-source $PWD/helpful_functions
-
-
+source ../helpful_functions
 echo "________________________________________
 INSTALL SCRIPT: TMUX Start
 "
 
+TMUX=$HOME/.tmux.conf
+
 # Set global tmux
 function existing_tmux_conf(){
-    if [ -e $HOME/.tmux.conf ] ; then
-        echo "INSTALL SCRIPT: $HOME/.tmux.conf found, moving to $HOME/.tmux.conf.pre-install"
+    if [ -e $TMUX ] ; then
+        echo "INSTALL SCRIPT: $TMUX found, moving to $HOME/.tmux.conf.pre-install"
 
-        mv $HOME/.tmux.conf $HOME/.tmux.conf.pre-install
+        mv  $TMUX $TMUX/.pre-install
     fi
 }
 
-if ! [ -L $HOME/.tmux.conf ] ; then
-    tmux_conf=$BASEDIR/tmux.conf
+if ! [ -L $TMUX ] ; then
+    tmux_conf=$1/tmux.conf
     echo "INSTALL SCRIPT: .tmux.conf not symlinked $HOME. Creating softlink to $tmux_conf"
-    
-    existing_tmux_conf
-
+    echo $TMUX $tmux_conf
     ln -s $tmux_conf $TMUX
 else
     echo "INSTALL SCRIPT: tmux config file already symlinked"
-    # git config --list | grep email
-    # to unset
-    # git config --global --unset user.email
 fi
 
 
