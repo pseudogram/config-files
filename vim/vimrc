@@ -98,7 +98,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'neovim/nvim-lspconfig'
 
 " Github copilot (AI pair programming)
-Plug 'github/copilot.vim' 
+" Plug 'github/copilot.vim' 
 
 " A formatter tool for neovim
 Plug 'sbdchd/neoformat'
