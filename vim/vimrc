@@ -15,7 +15,7 @@ endif
 call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'gruvbox-community/gruvbox'
-Plug 'navarasu/onedark.nvim'
+" Plug 'navarasu/onedark.nvim'
 
 " Adds dev icons to other plugins (ie. nerdtree)
 Plug 'ryanoasis/vim-devicons'
@@ -98,7 +98,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'neovim/nvim-lspconfig'
 
 " Github copilot (AI pair programming)
-Plug 'github/copilot.vim' 
+" Plug 'github/copilot.vim' 
 
 " A formatter tool for neovim
 Plug 'sbdchd/neoformat'

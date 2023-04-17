@@ -34,7 +34,7 @@ end
 -- Setup
 --  1. sudo npm install -g pyright
 --  2. sudp npm install -g typescript typescript-language-server
-local servers = { 'pyright', 'tsserver' } -- , 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'tsserver' , 'clangd'} -- , 'rust_analyzer', 'tsserver' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
