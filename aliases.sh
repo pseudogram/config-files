@@ -4,9 +4,9 @@ alias dk=docker
 alias dm='./docker.mk '
 
 # Basic config aliases
-# alias prettier="npm run prettier"
-alias refresh="source $HOME/.zshrc"
-alias rm="/bin/rm -iv"
+# alias prettier='npm run prettier'
+alias refresh='source $HOME/.zshrc'
+alias rm='/bin/rm -iv'
 # alias cat=bat
 alias cl=clear
 
@@ -30,7 +30,7 @@ alias uncommit='git reset --soft HEAD^'
 alias make-this-repo-safe='git remote set-url --push upstream DISABLED && git checkout master && git branch --set-upstream-to=upstream/master'
 
 # Vim renames
-alias vim="nvim"
-alias vi="nvim"
-alias oldvim="\vim"
-
+alias vim='nvim'
+alias vi='nvim'
+alias oldvim='\vim'
+alias vimf='$(fzf --preview='bat --color=always --theme=gruvbox-dark --style=numbers {}')'
