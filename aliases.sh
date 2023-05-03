@@ -33,4 +33,7 @@ alias make-this-repo-safe='git remote set-url --push upstream DISABLED && git ch
 alias vim='nvim'
 alias vi='nvim'
 alias oldvim='\vim'
-alias vimf='$(fzf --preview='bat --color=always --theme=gruvbox-dark --style=numbers {}')'
+alias vimf='nvim $(fzf --preview="bat --color=always --theme=gruvbox-dark --style=numbers {}")'
+
+# TS development things
+alias nx='npx nx'
