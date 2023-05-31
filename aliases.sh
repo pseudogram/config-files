@@ -34,3 +34,6 @@ alias vim='nvim'
 alias vi='nvim'
 alias oldvim='\vim'
 alias vimf='nvim $(fzf --preview="bat --color=always --theme=gruvbox-dark --style=numbers {}")'
+
+# other helpful things
+alias ag='alias|grep '
