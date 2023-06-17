@@ -3,14 +3,28 @@
 if [[ $# -eq 1  ]]; then
   selected=$1
 else
-  selected=$(find ~ ~/Developer ~/Projects -mindepth 1 -maxdepth 2 -type d | fzf)
+  selected=$({find ~  -mindepth 1 -maxdepth 1 -type d;
+              find ~/Developer -mindepth 1 -maxdepth 3 -type d;
+              find ~/Projects -mindepth 1 -maxdepth 3 -type d;} | fzf)
 fi
 
 if [[ -z $selected  ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+is_worktree=$(find "$selected/.." -type d -maxdepth 1 | grep .bare)
+
+if [[ ! -z "$is_worktree" ]]; then
+    worktree_name=$(basename "$selected")
+    parent=$(dirname "$selected")
+    parent_name=$(basename "$parent")
+
+    selected_name="$parent_name--$worktree_name"
+else
+    selected_name=$(basename "$selected")
+fi
+
+selected_name=$( echo $selected_name | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX  ]] && [[ -z $tmux_running  ]]; then
@@ -22,8 +36,8 @@ fi
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
   tmux new-session -ds $selected_name -c $selected
 fi
-if ! env|grep -i tmux; then 
-  # you're not in a tmux window, open a new tmux session in this terminal 
+if ! env|grep -i tmux; then
+  # you're not in a tmux window, open a new tmux session in this terminal
   tmux attach-session -t $selected_name
 else
   # you're in a tmux window, switch to the expected tmux session
