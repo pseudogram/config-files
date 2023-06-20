@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# check the number of arguments passed to the script == 1
+# $# is a special variable in bash that expands to the number of arguments
+# passed to the script
 if [[ $# -eq 1  ]]; then
   selected=$1
 else
