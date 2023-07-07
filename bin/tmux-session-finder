@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+# check the number of arguments passed to the script == 1
+# $# is a special variable in bash that expands to the number of arguments
+# passed to the script
+selected_name=$(tmux list-sessions -F "#S" | fzf)
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+  tmux new-session -ds $selected_name -c $selected
+fi
+if ! env|grep -i tmux; then
+  # you're not in a tmux window, open a new tmux session in this terminal
+  tmux attach-session -t $selected_name
+else
+  # you're in a tmux window, switch to the expected tmux session
+  tmux switch-client -t $selected_name
+fi
