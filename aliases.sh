@@ -37,3 +37,5 @@ alias vimf='nvim $(fzf --preview="bat --color=always --theme=gruvbox-dark --styl
 
 # other helpful things
 alias ag='alias|grep '
+alias pn='pnpm'
+alias cr='cargo run'

@@ -1,5 +1,5 @@
 batless() {
-  bat --color=always $1|less -R 
+  bat --color=always $1|less -R
 }
 
 addToPathFront() {
