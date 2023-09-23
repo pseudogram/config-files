@@ -6,6 +6,7 @@ alias dm='./docker.mk '
 # Basic config aliases
 # alias prettier='npm run prettier'
 alias refresh='source $HOME/.zshrc'
+alias so='source $HOME/.zshrc'
 alias rm='/bin/rm -iv'
 # alias cat=bat
 alias cl=clear
