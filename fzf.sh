@@ -43,9 +43,9 @@ _fzf_comprun() {
 #   fzf --bind "change:reload:$RG_PREFIX {q} || true" \
 #       --ansi --disabled --query "$INITIAL_QUERY" \
 #       --height=50% --layout=reverse
-# 
+#
 # bindkey '^f' FZF_DEFAULT_COMMAND
 
 
 # this should be the last command, and it is in zshrc
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
