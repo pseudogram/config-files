@@ -40,3 +40,13 @@ alias vimf='nvim $(fzf --preview="bat --color=always --theme=gruvbox-dark --styl
 alias ag='alias|grep '
 alias pn='pnpm'
 alias cr='cargo run'
+
+# rails things
+alias br='bin/rails'
+alias brs='bin/rails server'
+alias brsp='bin/rails server -p'
+alias brc='bin/rails console'
+alias brdb='bin/rails dbconsole'
+
+# custom rails
+alias bwp='bin/webpack-dev-server'
