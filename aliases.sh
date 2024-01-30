@@ -15,8 +15,10 @@ alias cl=clear
 alias conf=$HOME/config-files
 
 # Python aliases
-alias py=python3.10
-alias bpy='python3.10 -m bpython'
+alias p10=python3.10
+alias p11=python3.11
+alias py=python3.11
+alias bpy='python3.11 -m bpython'
 
 # Git aliases
 alias gfu='git fetch upstream'
@@ -37,6 +39,7 @@ alias oldvim='\vim'
 alias vimf='nvim $(fzf --preview="bat --color=always --theme=gruvbox-dark --style=numbers {}")'
 
 # other helpful things
+alias lg='ls -la|grep '
 alias ag='alias|grep '
 alias pn='pnpm'
 alias cr='cargo run'
@@ -50,3 +53,4 @@ alias brdb='bin/rails dbconsole'
 
 # custom rails
 alias bwp='bin/webpack-dev-server'
+alias da='direnv allow'
