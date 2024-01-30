@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+function special_extra_directories() {
+    echo /Users/dattlee/config-files/nvim.config
+}
+
 # check the number of arguments passed to the script == 1
 # $# is a special variable in bash that expands to the number of arguments
 # passed to the script
@@ -8,7 +12,8 @@ if [[ $# -eq 1  ]]; then
 else
   selected=$({find ~  -mindepth 1 -maxdepth 1 -type d;
               find ~/Developer -mindepth 1 -maxdepth 3 -type d;
-              find ~/Projects -mindepth 1 -maxdepth 3 -type d;} | fzf)
+              find ~/Projects -mindepth 1 -maxdepth 3 -type d;
+              special_extra_directories;} | fzf)
 fi
 
 if [[ -z $selected  ]]; then
