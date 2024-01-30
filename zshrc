@@ -12,10 +12,10 @@ CONFIG_FILE_DIRECTORY=$HOME/config-files
 source $CONFIG_FILE_DIRECTORY/aliases.sh
 source $CONFIG_FILE_DIRECTORY/env-vars.sh
 source $CONFIG_FILE_DIRECTORY/utils.sh
-# source $CONFIG_FILE_DIRECTORY/nvm.zsh
-source $CONFIG_FILE_DIRECTORY/pyenv.sh
+# source $CONFIG_FILE_DIRECTORY/pyenv.sh
 source $CONFIG_FILE_DIRECTORY/ohmyzsh.sh
 source $CONFIG_FILE_DIRECTORY/directorySettings.sh
+source ~/work-config/macbook.zshrc
 
 addToPathFront $CONFIG_FILE_DIRECTORY/bin
 bindkey -s ^f "tmux-sessionizer\n"
@@ -24,6 +24,17 @@ bindkey -s ^s "tmux-session-finder\n"
 # powerlevel10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval "$(rbenv init - zsh)"
-
+# eval "$(rbenv init - zsh)"
 source $CONFIG_FILE_DIRECTORY/fzf.sh
+
+# ASDF
+. "$HOME/.asdf/asdf.sh"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+# dir env for automatically loading ENV Variables when in directories.
+eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
