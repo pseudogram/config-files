@@ -13,6 +13,7 @@ alias cl=clear
 
 # File shortcuts
 alias conf=$HOME/config-files
+alias vimconf=$HOME/config-files/nvim.config
 
 # Python aliases
 alias p10=python3.10
@@ -42,6 +43,7 @@ alias vimf='nvim $(fzf --preview="bat --color=always --theme=gruvbox-dark --styl
 alias lg='ls -la|grep '
 alias ag='alias|grep '
 alias pn='pnpm'
+alias yi='yarn install'
 alias cr='cargo run'
 
 # rails things
@@ -52,5 +54,6 @@ alias brc='bin/rails console'
 alias brdb='bin/rails dbconsole'
 
 # custom rails
-alias bwp='bin/webpack-dev-server'
+alias wp='bin/webpack-dev-server'
+alias shk='bin/shakapacker-dev-server'
 alias da='direnv allow'
