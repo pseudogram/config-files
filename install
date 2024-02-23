@@ -10,14 +10,15 @@ CONF_ZSHRC=$CONFIG_DIRECTORY/zshrc
 # chmod u+x install_scripts/fzf
 
 # note: current config directory is passed to all script as arg ($1)
-$CONFIG_DIRECTORY/install_scripts/homebrew $CONFIG_DIRECTORY
+# Add bootstrapper functions here
+# $CONFIG_DIRECTORY/install_scripts/homebrew $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/git $CONFIG_DIRECTORY
-$CONFIG_DIRECTORY/install_scripts/nvm $CONFIG_DIRECTORY
+# $CONFIG_DIRECTORY/install_scripts/nvm $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/fzf $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/tmux $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/vim $CONFIG_DIRECTORY
-$CONFIG_DIRECTORY/install_scripts/pyenv $CONFIG_DIRECTORY
-$CONFIG_DIRECTORY/install_scripts/node_globals $CONFIG_DIRECTORY
+# $CONFIG_DIRECTORY/install_scripts/pyenv $CONFIG_DIRECTORY
+# $CONFIG_DIRECTORY/install_scripts/node_globals $CONFIG_DIRECTORY
 $CONFIG_DIRECTORY/install_scripts/zsh $CONFIG_DIRECTORY
 
 $(brew --prefix)/opt/fzf/install
