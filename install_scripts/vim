@@ -20,9 +20,9 @@ fi
 
 # Setup nvim config
 config_path=$HOME/.config
-symlink_nvim_config_path=$config_path/nvim
+symlink_nvim_config_path=$config_path/nvim.config
 if ! [ -L $symlink_nvim_config_path ]; then
-    my_nvm_config=$PWD/vim/nvim
+    my_nvm_config=$PWD/
     echo "INSTALL SCRIPT: $symlink_nvim_config_path not symlinked. Creating softlink to $my_nvm_config"
     mkdir -p $cd 
     ln -s $my_nvm_config $symlink_nvim_config_path
