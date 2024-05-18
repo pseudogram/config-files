@@ -30,7 +30,6 @@ bindkey -s ^s "tmux-session-finder\n"
 # powerlevel10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
 # ASDF
 . "$HOME/.asdf/asdf.sh"
 # append completions to fpath
@@ -46,3 +45,5 @@ eval "$(direnv hook zsh)"
 
 # source $CONFIG_FILE_DIRECTORY/fzf.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source $CONFIG_FILE_DIRECTORY/fzf.sh
