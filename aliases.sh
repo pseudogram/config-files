@@ -44,6 +44,7 @@ alias lg='ls -la|grep '
 alias ag='alias|grep '
 alias pn='pnpm'
 alias yi='yarn install'
+alias ya='yarn add'
 alias cr='cargo run'
 
 # rails things
